@@ -1,0 +1,49 @@
+---
+title: "week 6 in class workshop"
+format: html
+author: "Jasmine Toni"
+---
+
+# set up
+
+```{r package-set-up}
+
+library(tidyverse) # general usage
+library(here) # organization
+library(naniar) # missing data visualization
+
+install.packages("skimr")
+install.packages("plotly")
+install.packages("magick")
+install.packages("NatParksPalettes")
+install.packages("wesanderson")
+install.packages("patchwork")
+library(skimr) # quick glimpse at data
+library (plotly) # interactive plots
+library (magick) #insert images into plots
+library(NatParksPalettes)
+library(wesanderson) # another example of color package palette
+library(patchwork) # put plots together
+```
+
+# load in the data
+
+```{r loading-data}
+# create a new object called whales
+# read in the whales data
+whales <- read_csv(
+  here("data", "Graywhale_watching_2007_2019.csv")
+)
+```
+
+look at missing data
+
+```{r missing-data-vis}
+gg_miss_var(whales)
+```
+
+use 'skimr' package to quickly glimpse at the data:
+
+```{r glimpse-of-data-using-skimr}
+skim(whales)
+```
